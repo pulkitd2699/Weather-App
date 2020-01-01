@@ -6,6 +6,9 @@ const forecast = require('./utils/forecast')
 
 const app = express()
 
+//for heroku deployment it provides with its own ports that change with time
+const port = process.env.PORT || 3000
+
 // console.log(__dirname)
 // console.log(path.join(__dirname, '../public'))
 
@@ -135,6 +138,6 @@ app.get('*', (req, res) => {
 // })
 
 //run the server
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
