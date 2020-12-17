@@ -19,7 +19,7 @@ const port = process.env.PORT || 3000
 //setting up handlebars
 app.set('view engine', 'hbs') //Express.js view engine for handlebars.js
 
-//if "views" directory exist with different name
+//if "views" directory exist in subdir of root
 const viewPath = path.join(__dirname, '../templates/views')
 app.set('views', viewPath)
 
@@ -32,6 +32,7 @@ const publicDirPath = path.join(__dirname, '../public')
 app.use(express.static(publicDirPath)) //static takes the path to the server we want to serve up
 
 //app.get call to access dynamic hbs file (route handler)
+//render is used to render a view (handlebar)
 app.get('', (req, res) => {
     res.render('index',{
         title: 'Home Page',
